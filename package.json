@@ -5,9 +5,10 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "@material-ui/core": "4.12.3",
+    "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "4.11.2",
     "@material-ui/lab": "4.0.0-alpha.60",
+    "@react-google-maps/api": "^2.7.0",
     "axios": "0.25.0",
     "google-map-react": "2.1.10",
     "material-ui-rating": "4.2.0",

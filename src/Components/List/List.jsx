@@ -39,9 +39,9 @@ function List({ places,childClicked, isLoading, type, setType, rating, setRating
        <FormControl className={classes.formControl}>
         <InputLabel>Type</InputLabel>
         <Select value={type} onChange={(e) => setType(e.target.value)}>
-          <MenuItem value="restaurants">Restaurants</MenuItem>
-          <MenuItem value="hotels">Hotels</MenuItem>
-          <MenuItem value="attractions">Attractions</MenuItem>
+          <MenuItem value="restaurants">restaurants</MenuItem>
+          <MenuItem value="hotels">hotels</MenuItem>
+          <MenuItem value="attractions">attractions</MenuItem>
         </Select>
       </FormControl>
       <FormControl className={classes.formControl}>

@@ -7,6 +7,7 @@ import Map from "./Components/Map/Map";
 
 function App() {
   const [places, setPlaces] = useState([]);
+  const [filteredPlaces, setFilteredPlaces] = useState([])
   const [childClicked, setChildClicked] = useState(null);
 
 
@@ -26,21 +27,29 @@ function App() {
     );
   }, []);
 
+  useEffect(()=>{
+        const filteredPlaces = places.filter((place)=>place.rating > rating)
+        setFilteredPlaces(filteredPlaces);
+  },[rating])
+
   useEffect(() => {
     setIsLoading(true);
     getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
       setPlaces(data);
+      setFilteredPlaces([]);
       setIsLoading(false);
     });
   }, [type, coordinates, bounds]); //This empty array is a dependency array and indicates that the code inside the function only triggers when the app starts and for once too
 
+
+
   return (
     <>
       <CssBaseline />
-      <Header />
+      <Header setCoordinates={setCoordinates}/>
       <Grid container spacing={3} style={{ width: "100%" }}>
         <Grid item xs={12} md={4}>
-          <List places={places} 
+          <List places={filteredPlaces.length?filteredPlaces : places} 
             childClicked={childClicked}
             isLoading={isLoading}
             type={type}
@@ -54,7 +63,7 @@ function App() {
             setCoordinates={setCoordinates}
             setBounds={setBounds}
             coordinates={coordinates}
-            places={places}
+            places={filteredPlaces.length?filteredPlaces : places}
             setChildClicked={setChildClicked}
           />
         </Grid>
