@@ -27,7 +27,7 @@ function List({ places,childClicked, isLoading, type, setType, rating, setRating
     <div className={classes.container}>
       <Typography variant="h4">
         {" "}
-        Restaurants, Hotles & Attractions around you
+        Restaurants, Hotels & Attractions around you
       </Typography>
       {
         isLoading ? (
